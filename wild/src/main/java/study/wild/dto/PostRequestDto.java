@@ -4,15 +4,18 @@ import lombok.Data;
 
 
 @Data
-public class PostDto {
+public class PostRequestDto {
+
+    private Long id;
     private String title;
     private String content;
 
-    public PostDto(String title, String content) {
+    public PostRequestDto(Long id, String title, String content) {
+        this.id = id;
         this.title = title;
         this.content = content;
     }
 
-    public PostDto() {
+    public PostRequestDto() {
     }
 }

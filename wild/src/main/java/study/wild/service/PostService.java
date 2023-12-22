@@ -2,11 +2,10 @@ package study.wild.service;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import study.wild.domain.Post;
-import study.wild.dto.PostDto;
+import study.wild.dto.PostRequestDto;
 import study.wild.repository.PostRepository;
 
 import java.util.List;
@@ -33,11 +32,11 @@ public class PostService {
     }
 
     @Transactional
-    public PostDto update(Long id, PostDto post) {
+    public PostRequestDto update(Long id, PostRequestDto post) {
         Post originPost = postRepository.find(id);
         originPost.setTitle(post.getTitle());
         originPost.setContent(post.getContent());
-        return new PostDto(originPost.getTitle(), originPost.getContent());
+        return new PostRequestDto(originPost.getId(), originPost.getTitle(), originPost.getContent());
     }
 
     @Transactional
