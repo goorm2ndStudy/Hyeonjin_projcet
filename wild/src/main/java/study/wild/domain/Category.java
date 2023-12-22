@@ -3,6 +3,7 @@ package study.wild.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,12 +11,10 @@ import java.util.List;
 public class Category {
 
     @Id @GeneratedValue
-    @Column(name = "category_id")
     private Long id;
-
     private String name;
 
     @OneToMany(mappedBy = "category")
-    private List<Post> posts;
+    private List<Post> posts = new ArrayList<>();
 
 }
