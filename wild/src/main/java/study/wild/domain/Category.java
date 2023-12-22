@@ -3,6 +3,8 @@ package study.wild.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.util.List;
+
 @Entity
 @Getter
 public class Category {
@@ -13,7 +15,7 @@ public class Category {
 
     private String name;
 
-    @OneToOne(mappedBy = "category")
-    private Post post;
+    @OneToMany(mappedBy = "category")
+    private List<Post> posts;
 
 }

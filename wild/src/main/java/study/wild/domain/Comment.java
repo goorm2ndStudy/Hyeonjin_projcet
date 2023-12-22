@@ -2,11 +2,12 @@ package study.wild.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
+@Getter @Setter
 public class Comment {
 
     @Id @GeneratedValue
@@ -14,7 +15,7 @@ public class Comment {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "post")
     private Post post;
 
     @Column(name = "comment_content")
@@ -28,5 +29,6 @@ public class Comment {
 
     @Column(name = "comment_last_modified_date")
     private LocalDateTime lastModifiedDate;
+
 
 }
